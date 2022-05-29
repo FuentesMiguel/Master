@@ -1,0 +1,37 @@
+{% extends "list.html" %}
+{% load static %}
+
+{% block head_list %}
+
+{% endblock head_list %}
+
+{% block columns %}
+	<tr>
+		<th scope="col">#</th>
+		<th scope="col">Nombre</th>
+		<th scope="col">Descripcion</th>
+		<th scope="col">Opciones</th>
+	</tr>
+
+{% endblock columns %}
+
+{% block rows %}
+
+	{% for c in Categorias %}
+		<tr>
+			<th>{{c.id}} </th>
+			<th>{{c.nombre}} </th>
+			<th>{{c.descipcion}} </th>
+			<th>
+				<a type="button" href="{% url 'solicitud:Categorias_editar' c.id %}" class="btn btn-warning btn-flat btn-xs"><i class="fas fa-edit"></i></a>
+				<a type="button" href="{% url 'solicitud:Categorias_eliminar' c.id %}" class="btn btn-danger btn-flat btn-xs"><i class="fas fa-trash"></i></a>
+			</th>
+		</tr>
+
+	{% endfor %}
+	
+{% endblock rows %}
+
+{% block javascript %}
+
+{% endblock javascript%}

@@ -1,0 +1,44 @@
+{% extends "list.html" %}
+{% load static %}
+
+{% block head_list %}
+
+{% endblock head_list %}
+
+{% block columns %}
+	<tr>
+		<th scope="col">Id</th>
+		<th scope="col">Cedula</th>
+		<th scope="col">Nombre</th>
+		<th scope="col">Apellido</th>
+		<th scope="col">Telefono</th>
+		<th scope="col">Direccion</th>
+		<th scope="col">Estatus</th>
+		<th scope="col">Opciones</th>
+	</tr>
+
+{% endblock columns %}
+
+{% block rows %}
+
+	{% for c in Solicitante %}
+		<tr>
+			<th>{{c.id}} </th>
+			<th>{{c.cedula}} </th>
+			<th>{{c.nombre}} </th>
+			<th>{{c.apellido}} </th>
+			<th>{{c.telefono}} </th>
+			<th>{{c.direccion}} </th>
+			<th>{{c.estatus}} </th>
+			<th>
+				<button type="button" class="btn btn-warning btn-flat btn-xs"><i class="fas fa-edit"></i></button>
+				<button type="button" class="btn btn-danger btn-flat btn-xs"><i class="fas fa-trash"></i></button>
+			</th>
+		</tr>
+
+	{% endfor %}
+{% endblock rows %}
+
+{% block javascript %}
+
+{% endblock javascript%}

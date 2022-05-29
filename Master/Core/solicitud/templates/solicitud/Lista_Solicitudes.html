@@ -1,0 +1,38 @@
+{% extends "list.html" %}
+{% load static %}
+
+{% block head_list %}
+
+{% endblock head_list %}
+
+{% block columns %}
+	<tr>
+		<th scope="col">Nro</th>
+		<th scope="col">FECHA REGISTRO</th>
+		<th scope="col">CATEGORIA</th>
+		<th scope="col">SOLICITANTE</th>
+		<th scope="col">ESTATUS</th>
+		<th scope="col">OPCIONES</th>
+	</tr>
+
+{% endblock columns %}
+
+{% block rows %}
+	{% for c in Solicitudes %}
+		<tr>
+			<th>{{c.id}} </th>
+			<th>{{c.fecha_registro}} </th>
+			<th>{{c.categoria}} </th>
+			<th>{{c.id_solicitante}} </th>
+			<th>{{c.estatus}} </th>
+			<th>
+				<a type="button" href="{% url 'solicitud:Solicitudes_editar' c.id %}" class="btn btn-warning btn-flat btn-xs"><i class="fas fa-edit"></i></a>
+				<a type="button" href="{% url 'solicitud:Solicitudes_eliminar' c.id %}" class="btn btn-danger btn-flat btn-xs"><i class="fas fa-trash"></i></a>
+			</th>
+		</tr>
+	{% endfor %}
+{% endblock rows %}
+
+{% block javascript %}
+
+{% endblock javascript%}
